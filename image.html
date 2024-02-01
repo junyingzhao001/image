@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+</head>
+<body>
+
+
+<!-- 用于显示图片的容器 -->
+<div id="imageContainer"></div>
+
+<script>
+// 图片链接的前缀和后缀
+const imageUrlPrefix = "https://raw.githubusercontent.com/junyingzhao001/image/main/20240116_";
+const imageUrlSuffix = ".jpg";
+
+// 图片数量
+const imageCount = 68;
+
+// 获取用于显示图片的容器
+const imageContainer = document.getElementById("imageContainer");
+
+// 循环生成图片元素并添加到容器中
+for (let i = 0; i < imageCount; i++) {
+    // 创建图片元素
+    const imageElement = document.createElement("img");
+
+    // 设置图片的 src 属性
+    imageElement.src = imageUrlPrefix + (i < 10 ? '0' + i : i) + imageUrlSuffix;
+
+    // 设置图片的 alt 属性
+    imageElement.alt = "Image " + (i + 1);
+
+    // 将图片元素添加到容器中
+    imageContainer.appendChild(imageElement);
+
+    // 创建换行元素，使图片纵向排列
+    const lineBreak = document.createElement("br");
+    imageContainer.appendChild(lineBreak);
+}
+
+</script>
+
+</body>
+</html>
